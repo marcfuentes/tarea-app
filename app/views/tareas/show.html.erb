@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Titulo:</b>
+  <%= @tarea.titulo %>
+</p>
+
+<p>
+  <b>Cuerpo:</b>
+  <%= @tarea.cuerpo %>
+</p>
+
+<p>
+  <b>Hecho:</b>
+  <%= @tarea.hecho %>
+</p>
+
+<p>
+  <b>Vencimiento:</b>
+  <%= @tarea.vencimiento %>
+
+</p>
+
+
+<%= link_to 'Edit', edit_tarea_path(@tarea), class: "btn btn-large btn-primary" %> 
+<%= link_to 'Back', tareas_path, class: "btn btn-inverse btn-large" %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  titulo: MyString
+  cuerpo: MyText
+  hecho: false
+  vencimiento: 2013-05-28 00:06:06
+
+two:
+  titulo: MyString
+  cuerpo: MyText
+  hecho: false
+  vencimiento: 2013-05-28 00:06:06
