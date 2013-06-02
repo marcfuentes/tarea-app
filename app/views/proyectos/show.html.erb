@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nombre:</b>
+  <% @proyecto.tareas.each do |tarea| %>
+     <%=  tarea.titulo %>
+  <% end %>
+</p>
+
+<p>
+  <b>Cliente:</b>
+  <%= @proyecto.cliente %>
+</p>
+
+<h3> List of tareas para este proyecto</h3>
+
+<ul>
+
+<%- @proyecto.tareas.each do |tarea| %>
+  <li><%=link_to tarea.titulo, tarea %></li>
+
+<%-end-%>
+
+</ul>
+
+
+
+<%= link_to 'Edit', edit_proyecto_path(@proyecto), class: "btn btn-info btn-large" %> 
+<%= link_to 'Back', proyectos_path, class: "btn btn-warning btn-large" %>
+<%= link_to 'Nueva Tarea', new_proyecto_tarea_path(@proyecto) , class: "btn btn-inverse btn-large" %>

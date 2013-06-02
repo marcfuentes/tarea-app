@@ -25,6 +25,9 @@ class TareasController < ApplicationController
   # GET /tareas/new.json
   def new
     @tarea = Tarea.new
+    if params[:proyecto_id]
+      @tarea.proyecto_id = params[:proyecto_id]
+    end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,7 +44,9 @@ class TareasController < ApplicationController
   # POST /tareas.json
   def create
     @tarea = Tarea.new(params[:tarea])
-
+    if params[:proyecto_id]
+      @tarea.proyecto_id = params[:proyecto_id]
+    end
     respond_to do |format|
       if @tarea.save
         format.html { redirect_to @tarea, notice: 'Tarea was successfully created.' }

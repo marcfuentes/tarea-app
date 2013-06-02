@@ -10,10 +10,9 @@
             	<div class="row-fluid">
                 	<div class="span12">
                     	<div class="span6">
-                        	<h1 class="muted">Tareas App</h1>
+                        	<h1 class="muted">Proyo</h1>
                         </div>
-                        <div class="span4 offset2" style="margin-top:15px;">
-                          <button type="button" class="btn pull-right">Sign In</button>							
+                        						
                         </div>
                     </div>
                 </div>
@@ -21,11 +20,21 @@
 				  <div class="navbar-inner">
 					<div class="container">
 					  <ul class="nav">
-						<li><a href="#">Explora</a></li>
-						<li><a href="#">Search</a></li>
-						<li><a href="#">Features</a></li>
-						<li><a href="#">Blog</a></li>						
-					  </ul>                      
+				
+						<li><%= link_to "Proyectos", "/proyectos" %></li>
+											
+					  </ul>
+
+<p class="navbar-text pull-right">
+<% if user_signed_in? %>
+  Logged in as <strong><%= current_user.email %></strong>.
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+<% end %>
+
 					</div>
 				  </div>
 				</div>
@@ -33,7 +42,12 @@
 </head>
 <body>
 
-
+<% if notice %>
+  <p class="alert alert-notice"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-error"><%= alert %></p>
+<% end %>
 
 <%= yield %>
 

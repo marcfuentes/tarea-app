@@ -1,6 +1,14 @@
 Todo::Application.routes.draw do
-  resources :tareas
 
+  resources :proyectos do
+    resources :tareas
+  end
+
+
+  devise_for :users
+
+  root :to => redirect('/proyectos')
+  resources :tareas
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
